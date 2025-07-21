@@ -1,0 +1,13 @@
+prefix=C:/Users/himan/OneDrive/Desktop/Data Analyzer/gpt_analyzer_venv/Library
+exec_prefix=C:/Users/himan/OneDrive/Desktop/Data Analyzer/gpt_analyzer_venv/Library
+libdir=C:/Users/himan/OneDrive/Desktop/Data Analyzer/gpt_analyzer_venv/Library/lib
+sharedlibdir=C:/Users/himan/OneDrive/Desktop/Data Analyzer/gpt_analyzer_venv/Library/lib
+includedir=C:/Users/himan/OneDrive/Desktop/Data Analyzer/gpt_analyzer_venv/Library/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

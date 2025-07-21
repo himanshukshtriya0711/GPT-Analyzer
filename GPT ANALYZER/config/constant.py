@@ -1,0 +1,3 @@
+WORK_DIR = 'temp'
+TIMEOUT = 120
+
