@@ -1,0 +1,21 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+try:
+    df = pd.read_csv('data.csv')
+    survived_counts = df['Survived'].value_counts()
+    
+    plt.figure(figsize=(8, 6))
+    plt.bar(survived_counts.index, survived_counts.values)
+    plt.xticks([0, 1], ['Deceased', 'Survived'])
+    plt.xlabel('Passenger Status')
+    plt.ylabel('Number of Passengers')
+    plt.title('Titanic Passenger Survival Count')
+    plt.savefig('output.png')
+    print("Graph created and saved as output.png")
+
+except FileNotFoundError:
+    print("Error: data.csv not found in the working directory.")
+except Exception as e:
+    print(f"An error occurred: {e}")
+

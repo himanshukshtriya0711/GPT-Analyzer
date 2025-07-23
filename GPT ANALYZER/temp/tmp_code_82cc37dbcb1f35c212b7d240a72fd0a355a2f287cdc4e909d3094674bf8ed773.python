@@ -1,0 +1,44 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def plot_survival_counts(file_path):
+    try:
+        # Load the CSV file into a pandas DataFrame
+        df = pd.read_csv(file_path)
+
+        # Check if the 'Survived' column exists.  Handle potential errors gracefully
+        if 'Survived' not in df.columns:
+            print("Error: 'Survived' column not found in the CSV file.")
+            return
+
+        # Count survivors and deceased
+        survivors = df['Survived'].value_counts()[1]
+        deceased = df['Survived'].value_counts()[0]
+
+        # Create a bar chart using matplotlib
+        labels = ['Survived', 'Died']
+        values = [survivors, deceased]
+        
+        plt.figure(figsize=(8, 6))  # Adjust figure size for better readability
+        plt.bar(labels, values, color=['green', 'red'])
+        plt.xlabel('Survival Status')
+        plt.ylabel('Count')
+        plt.title('Titanic Survival Count')
+        plt.xticks(rotation=0)  # Rotate x-axis labels for better readability
+        plt.tight_layout()  # Prevents labels from overlapping
+        plt.savefig("output.png")
+
+
+        print("Survival analysis graph saved to output.png")
+    except FileNotFoundError:
+        print(f"Error: File '{file_path}' not found.")
+    except pd.errors.EmptyDataError:
+        print("Error: CSV file is empty.")
+    except KeyError as e:
+      print(f"Error: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+
+# Replace 'data.csv' with the actual path to your file if it's not in the working directory.
+plot_survival_counts('data.csv')

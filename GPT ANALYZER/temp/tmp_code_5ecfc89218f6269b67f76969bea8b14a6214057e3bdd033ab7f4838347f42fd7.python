@@ -1,0 +1,27 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+try:
+    df = pd.read_csv('data.csv')
+    print("Data read successfully.") #Added a print statement to confirm data read.
+    survived_counts = df['Survived'].value_counts()
+    plt.figure(figsize=(8, 6))
+    plt.bar(survived_counts.index, survived_counts.values)
+    plt.xticks([0, 1], ['Dead', 'Live'])
+    plt.xlabel('Survival Status')
+    plt.ylabel('Number of Passengers')
+    plt.title('Titanic Passengers Survival Status')
+    plt.savefig('output2.png')
+    print("Graph created and saved as output2.png")
+
+except FileNotFoundError:
+    print("Error: data.csv not found. Please ensure the file is in the working directory.")
+except KeyError as e:
+    print(f"Error: Column not found: {e}")
+except pd.errors.EmptyDataError:
+    print("Error: data.csv is empty.")
+except pd.errors.ParserError:
+    print("Error: Could not parse data.csv. Check the file format.")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+

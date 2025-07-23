@@ -33,3 +33,20 @@ DataAnalyzerAgent: For data interpretation.
 ProjectManagerAgent: For task planning (coming soon).
 
 Enables collaborative analysis through agent interaction.
+
+
+🚀 Features
+✅ Chat Input Interface
+Interact with an AI chatbot via a clean and responsive chat UI.
+
+✅ File Upload
+Upload .pdf, .txt, or .docx files to be analyzed and used in the chat context (e.g., summarization, Q&A, extraction).
+
+✅ Message Saving
+All user and assistant messages are saved in a database or local storage to allow chat history retrieval and seamless continuity.
+
+✅ Load Saved States
+Previously saved chats are loaded when a user returns, ensuring continuity in conversation even after refreshing the browser or relaunching the app.
+
+✅ Project Completion
+All core modules—chat input, file handling, storage integration, and state management—have been successfully implemented, making the project feature-complete.
